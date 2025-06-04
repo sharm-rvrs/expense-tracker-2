@@ -9,11 +9,11 @@ import {
 import { Box, NavLink } from "@mantine/core";
 
 const data = [
-  { icon: IconGauge, label: "Home", description: "Item with description" },
+  { icon: IconGauge, label: "Home", description: "Item with description", link: "/home" },
   {
     icon: IconCreditCard,
     label: "Expenses",
-    // leftSection: <IconChevronRight size={16} stroke={1.5} />,
+    link: "/expenses",
   },
   { icon: IconMap, label: "Trips" },
   { icon: IconSettings2, label: "Settings" },
@@ -24,7 +24,7 @@ function Sidebar() {
 
   const items = data.map((item, index) => (
     <NavLink
-      href="#required-for-focus"
+      href={item.link || "#"}
       key={item.label}
       active={index === active}
       label={item.label}

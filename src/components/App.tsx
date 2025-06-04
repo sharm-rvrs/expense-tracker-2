@@ -1,8 +1,10 @@
-import { AppShell, Button, Group, Title } from "@mantine/core";
+import { AppShell, Group, Title } from "@mantine/core";
 import reactlogo from "../assets/react.svg";
 import Sidebar from "./Sidebar";
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 import { IconSun, IconMoonStars } from "@tabler/icons-react";
+import Home from "../pages/home";
+import Expenses from "../pages/expenses";
 
 const App: React.FC = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -16,7 +18,7 @@ const App: React.FC = () => {
       <AppShell.Header>
         <Group h="100%" px="md">
           <img src={reactlogo} alt="React Logo" style={{ height: 40 }} />
-          <Title order={2}>Personal Expense Tracker</Title>
+          <Title order={2}>Test Only</Title>
         </Group>
         <ActionIcon
           variant="outline"
@@ -31,9 +33,15 @@ const App: React.FC = () => {
           )}
         </ActionIcon>
       </AppShell.Header>
+
       <AppShell.Navbar p="md">
         <Sidebar />
       </AppShell.Navbar>
+
+      <AppShell.Main>
+        <Home />
+      </AppShell.Main >
+      
     </AppShell>
   );
 };
