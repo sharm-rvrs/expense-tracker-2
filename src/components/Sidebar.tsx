@@ -1,37 +1,31 @@
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   IconGauge,
   IconCreditCard,
-  IconChevronRight,
   IconMap,
   IconSettings2,
 } from "@tabler/icons-react";
 import { Box, NavLink } from "@mantine/core";
 
 const data = [
-  { icon: IconGauge, label: "Home", description: "Item with description", link: "/home" },
-  {
-    icon: IconCreditCard,
-    label: "Expenses",
-    link: "/expenses",
-  },
-  { icon: IconMap, label: "Trips" },
-  { icon: IconSettings2, label: "Settings" },
+  { icon: IconGauge, label: "Home", description: "this is home", link: "/home" },
+  { icon: IconCreditCard, label: "Expenses", link: "/expenses" },
+  { icon: IconMap, label: "Trips", link: "/trips" },
+  { icon: IconSettings2, label: "Settings", link: "/settings" },
 ];
 
 function Sidebar() {
-  const [active, setActive] = useState(0);
+  const location = useLocation();
 
-  const items = data.map((item, index) => (
+  const items = data.map((item) => (
     <NavLink
-      href={item.link || "#"}
+      component={Link}
+      to={item.link || "#"}
       key={item.label}
-      active={index === active}
+      active={location.pathname === item.link}
       label={item.label}
       description={item.description}
-    //   rightSection={item.rightSection}
       leftSection={<item.icon size={16} stroke={1.5} />}
-      onClick={() => setActive(index)}
       color="lime"
     />
   ));

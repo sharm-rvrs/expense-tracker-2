@@ -5,6 +5,8 @@ import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 import { IconSun, IconMoonStars } from "@tabler/icons-react";
 import Home from "../pages/home";
 import Expenses from "../pages/expenses";
+import { Route, Routes } from "react-router-dom";
+
 
 const App: React.FC = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -39,7 +41,11 @@ const App: React.FC = () => {
       </AppShell.Navbar>
 
       <AppShell.Main>
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/expenses" element={<Expenses />} />
+          </Routes>
       </AppShell.Main >
       
     </AppShell>
