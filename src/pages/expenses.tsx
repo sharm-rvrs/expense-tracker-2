@@ -9,10 +9,11 @@ function Expenses() {
             </div>
             <div>
                 <h2>Get Started</h2>
-                <p>Click on the sidebar to navigate through the app.</p>
+                <p>Click on the sidebar to navigate through the app...</p>
             </div>
         </SimpleGrid>
     )
+    
 }
 
 export default Expenses;
